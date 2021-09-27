@@ -1,4 +1,10 @@
+#//--------------------------------------------------------------------------------------------
+#//Python Examples
+#//-------------------------------------------------------------------------------------------
 
+#//--------------------------------------------------------------------------------------------
+#Datatypes,Strings,List,Tuples,Dictionaries,Function,Regular Expres
+#//--------------------------------------------------------------------------------------------
 a=10
 b=20.3
 c="Vamshi"
@@ -18,6 +24,22 @@ print('float added value:',a-b)
 print('mul & quo:',a*2,a%2)
 
 print('string of c is:',c)
+
+####################################### while loop##############
+i=1
+while i<4:
+  print(i)
+  i+=1
+
+i=1
+while i<4:
+  print(i)
+  if i==2:
+    break
+  i+=1
+
+
+
 
 i=c+d
 print('a+d is',i.split())
@@ -82,6 +104,13 @@ print('sorting the list in  descending:',thislist)
 thislist = ["apple", "banana", "cherry"]
 mylist = thislist.copy()
 print('copying the whole list:',mylist)
+###############################################################
+s='hello world'
+print(s.upper())
+print(s.lower())
+print(s.strip())
+print(s.split(','))
+print(s.replace('h','H'))
 
 ######################################################
 
@@ -197,12 +226,33 @@ myfun('yuzi','warner',s)
 
 
 def myfun(**s):
-  for i,j in s.items:
-    return(print('{}:{}'.format(i,j)))
+  for i in s:
+    try:
+     print("The items are",s[i])
+    except:
+     print('Items are 4')
 
-myfun(apy='hp',cost=50000)
+myfun(apy='hp',cost="50000",core='intel',process='os')
 
-####################################################
+
+
+
+def funct(fname):
+  print(fname + " vamshi")
+ 
+funct("venky")
+
+
+def functi(*students):
+ return(print("students are",students))
+functi("vamshi","venky","siva",[1,2,2,2])
+
+
+def func(**students):
+  print("student is " + students["lname"])
+
+func(fname="vamshi",lname='venky')
+####################################################################
 
 
 import re
@@ -220,3 +270,27 @@ print(sc)
 
 sk=re.findall("work",line)
 print(sk)
+
+replace= 'IP'
+sz=re.sub("Ip's",replace,line)
+print(sz)
+
+##########################################################################
+#//--------------------------------------------------------------------------------------------
+# File Handling
+#-------------------------------------------------------------------------------------------
+
+#f=open("myfile.txt","x")
+f=open("/home/vamshidharreddy/Desktop/vamshi/Python-collections-/README.md","rt")
+print(f.read(8))
+#print(f.close())
+print(f.readlines())
+
+f=open("myfile.txt","a")
+f.write("Thank you")
+f.close()
+
+f=open("myfile.txt","r")
+print(f.read())
+
+
