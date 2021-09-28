@@ -1,3 +1,10 @@
+#//--------------------------------------------------------------------------------------------
+#//Python Examples
+#//-------------------------------------------------------------------------------------------
+
+#//--------------------------------------------------------------------------------------------
+#Datatypes,Strings,List,Tuples,Dictionaries,Function,Regular Expres,set
+#//--------------------------------------------------------------------------------------------
 
 a=10
 b=20.3
@@ -33,6 +40,25 @@ print('list indexing:',f[3],f[0:2])
 del(f[2:])
 print('deleted list:',f)
 
+#//--------------------------------------------------------------------------------------------
+ #While loop
+#--------------------------------------------------------------------------------------------
+
+i=1
+while i<4:
+  print(i)
+  i+=1
+
+i=1
+while i<4:
+  print(i)
+  if i==2:
+    break
+  i+=1
+
+#//--------------------------------------------------------------------------------------------
+# list methods
+#--------------------------------------------------------------------------------------------
 h=[111,'siva',121]
 h.append('Venkat')
 print('appended list:',h)
@@ -83,7 +109,23 @@ thislist = ["apple", "banana", "cherry"]
 mylist = thislist.copy()
 print('copying the whole list:',mylist)
 
-######################################################
+#//--------------------------------------------------------------------------------------------
+# string methods
+#--------------------------------------------------------------------------------------------
+
+s='hello world'
+print(s.upper())
+print(s.lower())
+print(s.strip())
+print(s.find('hello'))
+s='hello hello vamshi'
+print(s.count('hello'))
+print(s.split(','))
+print(s.replace('h','H'))
+
+#//--------------------------------------------------------------------------------------------
+# Tuple is converted to list and we can follow all list methods
+#--------------------------------------------------------------------------------------------  
 
 print("tuple:",g)
 
@@ -91,8 +133,9 @@ y=list(g)
 y.remove('Tommy')
 print('removed tupple:',y)
 
-########################################################
-
+#//--------------------------------------------------------------------------------------------
+# Dictionary
+#--------------------------------------------------------------------------------------------
 print('dict:',e)
 
 dic = {'venkat':'student','siva':'employe','vamsi':'lecturer'}
@@ -117,7 +160,10 @@ print('getting value of a particular item:',dic.get('muneeb'))
 
 dic.update({'muneeb':'guest'})
 print('updating the dic:',dic)
-#########################################################
+
+#//--------------------------------------------------------------------------------------------
+# String Comparision
+#--------------------------------------------------------------------------------------------
 
 x='hi'
 y='hi'
@@ -138,7 +184,9 @@ b[0]=2
 c[0]=3
 print(a,b,c)
 
-################################################
+#//--------------------------------------------------------------------------------------------
+# Functions
+#--------------------------------------------------------------------------------------------
 
 def func(a,b,*r):
   if(a>b):
@@ -197,13 +245,43 @@ myfun('yuzi','warner',s)
 
 
 def myfun(**s):
-  for i,j in s.items:
-    return(print('{}:{}'.format(i,j)))
+  for i in s:
+    try:
+     print("The items are",s[i])
+    except:
+     print('Items are 4')
 
-myfun(apy='hp',cost=50000)
+myfun(apy='hp',cost="50000",core='intel',process='os')
 
-####################################################
 
+#//--------------------------------------------------------------------------------------------
+# lambda functions
+#--------------------------------------------------------------------------------------------
+g=lambda x:x*x
+print(g(10))
+
+#//--------------------------------------------------------------------------------------------
+# Functions
+#--------------------------------------------------------------------------------------------
+def funct(fname):
+  print(fname + " vamshi")
+ 
+funct("venky")
+
+
+def functi(*students):
+ return(print("students are",students))
+functi("vamshi","venky","siva",[1,2,2,2])
+
+
+def func(**students):
+  print("student is " + students["lname"])
+
+func(fname="vamshi",lname='venky')
+
+#//--------------------------------------------------------------------------------------------
+# Regular Expressions 
+#--------------------------------------------------------------------------------------------
 
 import re
 
@@ -220,3 +298,161 @@ print(sc)
 
 sk=re.findall("work",line)
 print(sk)
+
+replace= 'IP'
+sz=re.sub("Ip's",replace,line)
+print(sz)
+
+#//--------------------------------------------------------------------------------------------
+# File Handling
+#-------------------------------------------------------------------------------------------
+
+#f=open("myfile.txt","x")
+f=open("/home/vamshidharreddy/Desktop/vamshi/Python-collections-/README.md","rt")
+print(f.read(8))
+#print(f.close())
+print(f.readlines())
+
+f=open("myfile.txt","a")
+f.write("Thank you")
+f.close()
+
+f=open("myfile.txt","r")
+print(f.read())
+
+#//--------------------------------------------------------------------------------------------
+# list method 'append','copy'
+#--------------------------------------------------------------------------------------------
+
+x=["phone","lap","Battery"]
+x.append("cell")
+print(x)
+
+
+x=["phone","lap","Battery"]
+y=x.copy()
+print(y)
+
+y=list(x)
+print(y)
+
+#//--------------------------------------------------------------------------------------------
+ #set methods
+#--------------------------------------------------------------------------------------------
+
+set={"app","telsuko","learning"}
+set.add("phone")
+print(set)
+
+
+set={"app","telsuko","learning"}
+set1=["app","telsuko"]
+set.update(set1)
+print(set)
+
+
+set={"app","telsuko","learning"}
+set1=["phone"]
+z=set.union(set1)
+print(z)
+
+
+set={"app","telsuko","learning"}
+set.remove("telsuko")
+print(set)
+
+
+set={"app","telsuko","learning"}
+set.discard("app")
+print(set)
+
+
+#//--------------------------------------------------------------------------------------------
+ #if else
+#--------------------------------------------------------------------------------------------
+
+
+x=['keybad','mouse']
+for i in x:
+  if 'mouse' in x:
+    print("yes")
+#//--------------------------------------------------------------------------------------------
+# for loop
+#--------------------------------------------------------------------------------------------
+
+x=['book','pen']
+for i in x:
+  print(i)
+
+x=['book','pen']
+y=['white','black']
+for i in x:
+  for j in y:
+    print(i,j)
+  
+#//--------------------------------------------------------------------------------------------
+# Class Concept
+#------------------------------------------------------------------------------------------
+
+class employee:
+  def __init__(self,name,age,salary):
+    self.name=name
+    self.age=age
+    self.salary=salary
+
+  def show_details(self):
+    print("The name is ",self.name)
+    print("The age is",self.age)
+    print("The salary is",self.salary)
+
+e1=employee('vamshi',24,1000)
+e1.show_details()
+
+
+'''
+class Parent:
+  def assign_name(self,name):
+    self.name=name
+  def show_name(self):
+    return self.name
+
+class Child(Parent):
+  def assign_age(self,age):
+    self.age=age
+  def show_age(self):
+    return self.age
+
+class grandchild(Child):
+  def assign_salary(self,salary):
+    self.salary=salary
+  def show_salary(self):
+    return self.salary
+
+
+g1=grandchild()
+g1.assign_name('vamshi')
+g1.assign_age(20)
+g1.assign_salary(100)
+g1.show_name()
+g1.show_age()
+g1.show_salary()
+
+'''
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
